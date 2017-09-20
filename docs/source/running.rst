@@ -3,17 +3,23 @@
 Running dhcpcanon
 ==================
 
-    dhcpca.py [-h] [-d] [-l LEASE] [-v] [interface]
+If ``dhcpcanon`` has be installed with systemd, it can be started with::
 
-positional arguments:
-  interface interface to configure with DHCP
+    sudo systemctl start dhcpcanon
 
-optional arguments:
+After installing, it can also be run manually::
 
-  -h, --help show this help message and exit
+    sudo dhcpcanon
 
-  -d, --debug debug
+There is no need to pass any argument, most of the arguments are only used when
+``dhcpcanon`` is called by other program (``systemd`` or
+``gnome network manager``) and mimic the ``dhclient`` arguments.
 
-  -l LEASE, --lease custom lease time
+You can specify which network interface to use passing it as an argument.
+Without specificying the network interface, it will use the active interface.
 
-  -v, --version version
+An useful argument when reporting bugs is ``-v``.
+
+An updated command line usage description can be obtained with::
+
+    dhcpcanon -h
